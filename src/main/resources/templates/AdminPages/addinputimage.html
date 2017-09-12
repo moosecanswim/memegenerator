@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Add Input Image</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Add an input image here</h1>
+        <br />
+        <form action="/admin/processinputimage"
+              method="POST"
+              th:object="${anInputImage}"
+              enctype="multipart/form-data">
+            <fieldset>
+                <legend>Upload an image here</legend>
+                <!--hidden id field-->
+                <input type="hidden" th:field="*{id}">
+                <p>Name: <input type="text" th:field="*{name}"/></p>
+                <p><input type="file" name="file" /><br /><br /></p>
+                <input type="submit" value="Submit" />
+            </fieldset>
+
+        </form>
+    </div>
+</body>
+</html>

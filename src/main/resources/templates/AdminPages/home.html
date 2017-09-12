@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Admin Home</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Home</h1>
+        <br />
+        <h2><a href="/admin/addinputimage">Add an Image</a></h2>
+
+        <table>
+            <tr>
+                <th>Thumbnail</th>
+                <th>Id</th>
+                <th>Meme Name</th>
+                <th>Added By</th>
+                <th>Status</th>
+                <!--<th>Image URL</th>-->
+                <th>Actions</th>
+            </tr>
+            <tr th:each="img:${listInputImages}">
+                <td th:if="${img.imageLocation} != null">
+                    <img th:src="${img.imageLocation}" width="150px" />
+                </td>
+                <td th:text="${img.id}"></td>
+                <td th:text="${img.name}"></td>
+                <td th:text="${img.author}"></td>
+                <td th:text="*{img.status}"></td>
+                <!--<td th:text="${img.imageLocation}"></td>-->
+                <td>
+                    delete
+                    -
+                    update
+                    -
+                    archive
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
